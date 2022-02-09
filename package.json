@@ -1,0 +1,20 @@
+{
+  "name": "snowboarding",
+  "version": "1.0.0",
+  "description": "Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sasha-odintsov/snowboarding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sasha-odintsov/snowboarding/issues"
+  },
+  "homepage": "https://github.com/sasha-odintsov/snowboarding#readme"
+}
