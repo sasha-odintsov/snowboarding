@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eaf3f3;
+}
+
+#area {
+    width: 780px;
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.rider,
+.trees {
+    width: 110px;
+}
+
+.row {   
+    display: flex;
+}
+
+.column {
+    width: 130px;
+    height: 130px;    
+}
