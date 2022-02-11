@@ -4,15 +4,21 @@ body {
     background-color: #eaf3f3;
 }
 
+/* game area */
+
+.wrapper {
+    width: 600px;
+    margin: 0 auto;
+}
+
 #area {
-    width: 780px;
-    margin: 20px auto;
     background-color: #fff;
+    margin-bottom: 2px;
 }
 
 .rider,
 .trees {
-    width: 110px;
+    width: 90px;
 }
 
 .row {   
@@ -20,6 +26,44 @@ body {
 }
 
 .column {
-    width: 130px;
-    height: 130px;    
+    width: 100px;
+    height: 100px;    
 }
+
+/* controls */
+
+.controls__wrap {
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.controls {
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #cecbcb;
+}
+
+.controls:active {
+    transform: scale(0.95);
+}
+
+.controls__up, .controls__down {
+    width: 140px;
+    border-radius: 30px 30px 0 0;
+}
+
+.controls__down {
+    border-radius: 0 0 30px 30px;
+}
+
+.controls__secondary-wrap {
+    font-size: 0;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.controls__left, .controls__right {
+    width: 70px;
+    margin: 0;
+    font-size: 14px;
+} 
