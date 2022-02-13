@@ -35,6 +35,7 @@ body {
 .controls__wrap {
     text-align: center;
     background-color: #fafafa;
+    display: none;
 }
 
 .controls {
@@ -67,3 +68,9 @@ body {
     margin: 0;
     font-size: 14px;
 } 
+
+@media screen and (max-width:992px) {
+    .controls__wrap {
+        display: block;
+    }
+}
