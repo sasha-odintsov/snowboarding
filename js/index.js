@@ -10,6 +10,17 @@ const field = [
 let x = 0;
 let y = 0;
 
+function getLocation(div) { 
+  div.map((row, indexRow) => {
+    row.map((item, indexColumn) => {      
+      if (item === 3) {
+        x = indexRow;
+        y = indexColumn;
+      }; 
+    });
+  });
+};
+
 function render(area) { 
   htmlMarkup = '';
   area.forEach((row, indexRow) => {
@@ -20,8 +31,9 @@ function render(area) {
         htmlMarkup = htmlMarkup + '<img class="trees" src="images/trees.png">'; 
       } else if (item === 3) {
         htmlMarkup = htmlMarkup + '<img class="rider" src="images/rider.png">';
-        x = indexRow;
-        y = indexColumn;
+        getLocation(field);
+        // x = indexRow;
+        // y = indexColumn;
       }
       htmlMarkup = htmlMarkup + '</div>'
     });
@@ -34,79 +46,81 @@ document.getElementById('area').innerHTML = render(field);
 console.log(x);
 console.log(y);
 
+const countColumns = field[0].length;
+const countRows = field.length;
+
+function moveRight() {
+  if (y < countColumns - 1) {
+    if (field[x][y + 1] != 1) {
+      field[x][y] = 0;
+      field[x][y + 1] = 3;
+      document.getElementById('area').innerHTML = render(field); 
+      console.log(x);
+      console.log(y);
+    }
+  }
+}
+
+function moveDown() {
+  if (x < countRows - 1) {
+    if (field[x + 1][y] != 1) {
+      field[x][y] = 0;
+      field[x + 1][y] = 3;
+      document.getElementById('area').innerHTML = render(field);
+      console.log(x);
+      console.log(y);
+    }
+  }
+}
+
+function moveUp() {
+  if (x < countRows) {
+    if (field[x - 1][y] != 1) {
+      field[x][y] = 0;
+      field[x - 1][y] = 3;
+      document.getElementById('area').innerHTML = render(field);
+      console.log(x);
+      console.log(y);
+    }
+  }
+}
+
+function moveLeft() {
+  if (y < countColumns) {
+    if(field[x][y - 1] != 1) { 
+      field[x][y] = 0;
+      field[x][y - 1] = 3;
+      document.getElementById('area').innerHTML = render(field); 
+      console.log(x);
+      console.log(y);
+    }
+  }
+}
+
 document.addEventListener('keyup', (event) => {
   if (event.key === 'ArrowRight') {
-    const countColumns = field[0].length;
-    if (y < countColumns - 1) {      
-      field[x][y] = 0;
-      field[x][y + 1] = 3;
-      document.getElementById('area').innerHTML = render(field); 
-      console.log(x);
-      console.log(y);
-    }
+    moveRight();
   }
   if (event.key === 'ArrowDown') {
-    const countRows = field.length;
-    if (x < countRows - 1) {
-      field[x][y] = 0;
-      field[x + 1][y] = 3;
-      document.getElementById('area').innerHTML = render(field);
-      console.log(x);
-      console.log(y);
-    }
+    moveDown();
   }
   if (event.key === 'ArrowUp') {
-    const countRows = field.length;
-    if (x < countRows - 1) {
-      field[x][y] = 0;
-      field[x - 1][y] = 3;
-      document.getElementById('area').innerHTML = render(field);
-      console.log(x);
-      console.log(y);
-    }
+    moveUp();    
   }
   if (event.key === 'ArrowLeft') {
-    const countColumns = field[0].length;
-    if (y < countColumns - 1) {
-      field[x][y] = 0;
-      field[x][y - 1] = 3;
-      document.getElementById('area').innerHTML = render(field); 
-      console.log(x);
-      console.log(y);
-    }
+    moveLeft();    
   }
 });
 
-
 document.querySelector('.controls__right').addEventListener(('click'), () => {
-  const countColumns = field[0].length;
-    if (y < countColumns - 1) {
-      field[x][y] = 0;
-      field[x][y + 1] = 3;
-      document.getElementById('area').innerHTML = render(field);
-    }
+  moveRight();
 });
 document.querySelector('.controls__left').addEventListener(('click'), () => {
-  const countColumns = field[0].length;
-    if (y < countColumns - 1) {
-      field[x][y] = 0;
-      field[x][y - 1] = 3;
-      document.getElementById('area').innerHTML = render(field); 
-    }
+  moveLeft();   
 });
 document.querySelector('.controls__up').addEventListener(('click'), () => {
-  const countRows = field.length;
-    if (x < countRows - 1) {
-      field[x][y] = 0;
-      field[x - 1][y] = 3;
-      document.getElementById('area').innerHTML = render(field);
-    }
+  moveUp();
 });
 document.querySelector('.controls__down').addEventListener(('click'), () => {
-  const countRows = field.length;
-    if (x < countRows - 1) {
-      field[x][y] = 0;
-      field[x + 1][y] = 3;
-      document.getElementById('area').innerHTML = render(field);
-    }
+  moveDown();
 });

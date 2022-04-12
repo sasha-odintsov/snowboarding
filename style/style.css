@@ -1,6 +1,5 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0; 
     background-color: #eaf3f3;
 }
 
@@ -72,5 +71,15 @@ body {
 @media screen and (max-width:992px) {
     .controls__wrap {
         display: block;
+    }
+}
+
+@media screen and (max-width:460px) {
+    .controls__wrap {
+        position: fixed;
+        bottom: 5px;
+        left: 5px;
+        opacity: .7;
+        background: none;
     }
 }
