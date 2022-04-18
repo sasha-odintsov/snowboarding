@@ -49,11 +49,8 @@
   
   getResult();
   
-  const countColumns = field[0].length;
-  const countRows = field.length;
-  
   function moveRight() {
-    if (y < countColumns - 1) {
+    if (y < field[0].length - 1) {
       if (field[x][y + 1] != 1) {
         field[x][y] = 0;
         field[x][y + 1] = 3;
@@ -63,7 +60,7 @@
   }
   
   function moveDown() {
-    if (x < countRows - 1) {
+    if (x < field.length - 1) {
       if (field[x + 1][y] != 1) {
         field[x][y] = 0;
         field[x + 1][y] = 3;
@@ -73,7 +70,7 @@
   }
   
   function moveUp() {
-    if (x < countRows) {
+    if (x >= !field.length.value) {
       if (field[x - 1][y] != 1) {
         field[x][y] = 0;
         field[x - 1][y] = 3;
@@ -83,7 +80,7 @@
   }
   
   function moveLeft() {
-    if (y < countColumns) {
+    if (y >= !field.length.value) {
       if(field[x][y - 1] != 1) { 
         field[x][y] = 0;
         field[x][y - 1] = 3;
